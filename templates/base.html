@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> {% block title %}{% endblock %}</title>
+    <!-- 1. Подключаем скомпилированный и минимизированный файл CSS Bootstrap 3 -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+{% block content %}
+{% endblock %}
+
+<!-- 2. Подключаем библиотеку jQuery, необходимую для работы скриптов Bootstrap 3 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- 3. Подключаем скомпилированный и минимизированный файл JavaScript платформы Bootstrap 3 -->
+<script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>
