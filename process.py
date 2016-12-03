@@ -42,7 +42,6 @@ def load_data_file(file_name, start, end):
     for row in csv.reader(f, delimiter=','):
         data[int(row[0].split('-')[1])] = float(row[4])
     return data
-    process(data)
 
 
 def load_data_network(symbol, start, end):
@@ -55,4 +54,3 @@ def load_data_network(symbol, start, end):
         time = datetime.strptime(smth[0], '%d-%b-%y')
         data[int(datetime.strftime(time, '%m'))] = float(smth[4])
     return data
-    process(data)

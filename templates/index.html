@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Акции{% endblock %}
 {% block content %}
-<div style="height: 175px" class="clearfix"></div>
-<form id="auth" action="/counting" method="get" class="form-horizontal">
+<form action="/" method="get" class="form-horizontal">
     <center>
         <p><h4>Введите наименование компании, котировки акций которой вы хотите получить,
         а также даты начала и конца запрашиваемого периода.</h4></p>
@@ -35,4 +34,51 @@
         </div>
     </center>
 </form>
+
+{% if data %}
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <p class="text-center">
+            <h1>Stocks - {{ symbol }} - {{ year }}</h1>
+            </p>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <center>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered">
+                        <tr>
+                            <th>Date</th>
+                            <th>Open</th>
+                            <th>Close</th>
+                            <th>High</th>
+                            <th>Low</th>
+                            <th>Volume</th>
+                        </tr>
+                        {% for date, v in data.items() %}
+                        <tr>
+                            <td>{{ date }}</td>
+                            <td>{{data[date]['open']}}</td>
+                            <td>{{data[date]['close']}}</td>
+                            <td>{{data[date]['high']}}</td>
+                            <td>{{data[date]['low']}}</td>
+                            <td>{{data[date]['volume']}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </center>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock %}
