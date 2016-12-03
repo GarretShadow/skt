@@ -13,9 +13,8 @@ def read_db_net(symbol, start, end):
         }}
     for row in b_data[1:]:  # Пропускаем первую строку с именами колонок
         line = row.decode().strip().split(',')
-        d = datetime.strptime(line[0], '%d-%m-%Y')
+        d = datetime.strptime(line[0], '%d-%b-%y')
         date = datetime.date(d)
-        # date = datetime.datetime.strptime(row[0], '%d-%m-%Y').date()
         dataset['data'][date] = {
             'date': date,
             'open': float(row[1]),
