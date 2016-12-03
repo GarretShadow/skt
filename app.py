@@ -1,11 +1,10 @@
 import argparse
 import datetime
 import logging
-import sys
 
 from process import write_file, process, load_data_file, load_data_network
 from indicator import indicator_read_file, indicator_read_net
-from data_base import get_data, write_data
+from db import get_data, write_data
 
 if __name__ == "__main__":
     logging.info('Программа запущена')  # Вывод информационных соообщений

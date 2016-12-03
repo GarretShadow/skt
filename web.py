@@ -2,7 +2,7 @@ import datetime
 
 from flask import Flask, render_template
 from flask import redirect, url_for, request
-from data_base import get_data
+from db import get_data
 
 app = Flask(__name__)
 

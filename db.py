@@ -28,7 +28,7 @@ def read_db_net(symbol, start, end):
 
 
 def get_data(symbol, start, end):
-    conn = sqlite3.connect('test.db')
+    conn = sqlite3.connect('data/test.db')
     c = conn.cursor()
     # Создаем таблицы акций соответствующих компаний и таблицу компаний и лет, по кот. есть данные
     c.execute('''CREATE TABLE IF NOT EXISTS {symbol}
